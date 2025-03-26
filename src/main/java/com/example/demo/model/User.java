@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -36,7 +37,8 @@ public class User {
     private String email;
     private String name;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference  // Prevents infinite recursion. "// Prevents infinite recursion . "This annotation solved the bug of infinite recursion between users and tasks refer this chat of chatgpt https://chatgpt.com/share/67e3c7a5-aad8-800e-9365-cf33e408d877 "
     private List<Task> tasks;
 
 }
