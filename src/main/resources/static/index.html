@@ -4,24 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List App</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
     <h1>To-Do List App</h1>
 </header>
-<section id="tasks">
-    <!-- Tasks will be displayed here -->
-</section>
-<section id="create-task">
-    <form id="create-task-form">
-        <input type="text" id="task-name" placeholder="Task name">
-        <button type="submit">Create Task</button>
-    </form>
-</section>
+
+<main>
+    <section id="create-task">
+        <h2>Create New Task</h2>
+        <form id="create-task-form">
+            <div class="form-group">
+                <label for="task-name">Task Title *</label>
+                <input type="text" id="task-name" placeholder="Enter task title" required>
+            </div>
+            <div class="form-group">
+                <label for="task-description">Description</label>
+                <textarea id="task-description" placeholder="Enter task description" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="task-due-date">Due Date</label>
+                <input type="date" id="task-due-date">
+            </div>
+            <button type="submit">Create Task</button>
+        </form>
+    </section>
+
+    <section id="tasks-section">
+        <h2>Your Tasks</h2>
+        <div id="tasks">
+            <!-- Tasks will be displayed here -->
+        </div>
+    </section>
+</main>
+
 <footer>
     <p>&copy; 2024 To-Do List App</p>
 </footer>
+
 <script src="script.js"></script>
 </body>
 </html>
